@@ -1,5 +1,5 @@
 import { Directive, ElementRef, Host, OnInit, OnDestroy } from '@angular/core';
-import { Subject } from 'rxjs/Subject';
+import { Subject } from 'rxjs';
 import { takeUntil } from 'rxjs/operators';
 
 import { TOGGLE_STATUS } from './toggle-status';
