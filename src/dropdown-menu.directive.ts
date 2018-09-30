@@ -1,7 +1,6 @@
 import { Directive, ElementRef, Host, OnInit, OnDestroy } from '@angular/core';
 import { Subject } from 'rxjs/Subject';
-import { BehaviorSubject } from 'rxjs/BehaviorSubject';
-import 'rxjs/add/operator/takeUntil';
+import { takeUntil } from 'rxjs/operators';
 
 import { TOGGLE_STATUS } from './toggle-status';
 import { DropdownDirective } from './dropdown.directive';
@@ -20,7 +19,7 @@ export class DropdownMenuDirective implements OnInit, OnDestroy {
 
   ngOnInit() {
     this.dropdown.statusChange()
-      .takeUntil(this.ngUnsubscribe)
+      .pipe(takeUntil(this.ngUnsubscribe))
       .subscribe((newStatus: TOGGLE_STATUS) => {
         if (newStatus === TOGGLE_STATUS.OPEN) {
           // Listen to click events to realise when to close the dropdown.

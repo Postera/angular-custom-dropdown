@@ -1,8 +1,6 @@
 import { Directive, ElementRef, Renderer, HostListener } from '@angular/core';
-import { Observable } from 'rxjs/Observable';
-import { Subject } from 'rxjs/Subject';
-
 import { TOGGLE_STATUS } from './toggle-status';
+import { Observable, Subject } from 'rxjs';
 
 @Directive({
   selector: '[dropdown]',
